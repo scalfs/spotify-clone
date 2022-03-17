@@ -1,0 +1,30 @@
+{
+  "name": "spotify-clone",
+  "version": "1.0.0",
+  "description": "[Semana JS Expert 6.0 by Erick Wendel](https://github.com/ErickWendel/semana-javascript-expert06)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "live-reload": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engine": {
+    "node": "17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scalfs/spotify-clone.git"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scalfs/spotify-clone/issues"
+  },
+  "homepage": "https://github.com/scalfs/spotify-clone#readme",
+  "dependencies": {
+    "pino": "^7.8.0",
+    "pino-pretty": "^7.5.3"
+  }
+}
