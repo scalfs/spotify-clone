@@ -10,13 +10,13 @@
 
 - Web API
 
-  - [ ] 100% test coverage
+  - [x] 100% test coverage
   - [ ] Integration tests validating all API routes
-  - [ ] Deliver static files as Node.js Stream
+  - [x] Deliver static files as Node.js Stream
   - [ ] Deliver song files as Node.js Stream
   - [ ] If a user disconnects, the API shouldn't break
   - [ ] The API must support multiple simultaneous commands without breaking
-  - [ ] If an unexpeted error occurs, the API should keep working
+  - [x] If an unexpeted error occurs, the API should keep working
   - [ ] The project must be executable on Linux, Mac and Windows environments
 
 - Web App
