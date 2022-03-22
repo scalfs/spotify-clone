@@ -13,16 +13,16 @@
   - [x] 100% test coverage
   - [ ] Integration tests validating all API routes
   - [x] Deliver static files as Node.js Stream
-  - [ ] Deliver song files as Node.js Stream
-  - [ ] If a user disconnects, the API shouldn't break
+  - [x] Deliver song files as Node.js Stream
+  - [x] If a user disconnects, the API shouldn't break
   - [ ] The API must support multiple simultaneous commands without breaking
   - [x] If an unexpeted error occurs, the API should keep working
-  - [ ] The project must be executable on Linux, Mac and Windows environments
+  - [x] The project must be executable on Linux, Mac and Windows environments
 
 - Web App
 
   - Client
-    - [ ] Must reproduce the audio transmission
+    - [x] Must reproduce the audio transmission
     - [ ] Can't pause upon effects activation
   - Controller
     - [ ] 100% test coverage
