@@ -1,4 +1,5 @@
-import {createServer} from "http"
-import { handler } from "./routes.js"
+import { createServer } from "http";
+import { handler } from "./routes.js";
 
-export default createServer(handler)
+// exporting this function guarantees a unique server instance
+export default () => createServer(handler);

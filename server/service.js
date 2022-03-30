@@ -1,14 +1,14 @@
+import childProcess from "child_process";
+import { randomUUID } from "crypto";
+import { once } from "events";
 import fs from "fs";
 import fsPromises from "fs/promises";
-import config from "./config.js";
-import { join, extname } from "path";
-import { randomUUID } from "crypto";
+import { extname, join } from "path";
 import { PassThrough, Writable } from "stream";
-import Throttle from "throttle";
-import childProcess from "child_process";
-import { logger } from "./util.js";
 import streamsPromises from "stream/promises";
-import { once } from "events";
+import Throttle from "throttle";
+import config from "./config.js";
+import { logger } from "./util.js";
 
 const {
   dir: { publicDirectory },
@@ -22,8 +22,6 @@ export class Service {
     this.currentBitRate = 0;
     this.throttleTransform = {};
     this.currentReadable = {};
-
-    this.startStreamming();
   }
 
   createClientStream() {
@@ -48,8 +46,8 @@ export class Service {
   async getBitRate(song) {
     try {
       const args = [
-        "--i", //info
-        "-B", //bitrate
+        "--i", // info
+        "-B", // bitrate
         song,
       ];
       const {
@@ -57,6 +55,7 @@ export class Service {
         stdout, // logs
         //stdin, // send data as stream
       } = this._executeSoxCommand(args);
+
       await Promise.all([once(stderr, "readable"), once(stdout, "readable")]);
 
       const [success, error] = [stdout, stderr].map((stream) => stream.read());

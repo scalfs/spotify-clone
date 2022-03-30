@@ -36,7 +36,7 @@ async function routes(request, response) {
     request.once("close", onClose);
     response.writeHead(200, {
       "Content-Type": "audio/mpeg",
-      "Accept-Rages": "bytes",
+      "Accept-Ranges": "bytes",
     });
 
     return stream.pipe(response);
@@ -54,9 +54,8 @@ async function routes(request, response) {
     const { stream, type } = await controller.getFileStream(url);
     const contentType = CONTENT_TYPE[type];
     if (contentType) {
-      response.writeHead(200, { "Content-Type": CONTENT_TYPE[type] });
+      response.writeHead(200, { "Content-Type": contentType });
     }
-
     return stream.pipe(response);
   }
 

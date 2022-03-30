@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { jest } from "@jest/globals";
 import { Readable, Writable } from "stream";
 
@@ -17,8 +15,9 @@ export default class TestUtil {
 
   static generateWritableStream(onData) {
     return new Writable({
-      write(chunk, end, cb) {
-        onData(chunk);
+      write(chunk, enc, cb) {
+        // fix: added optional function
+        onData?.(chunk);
 
         cb(null, chunk);
       },
@@ -27,14 +26,14 @@ export default class TestUtil {
 
   static defaultHandleParams() {
     const requestStream = TestUtil.generateReadableStream(["request body"]);
-    const responseStream = TestUtil.generateWritableStream(() => {});
+    const response = TestUtil.generateWritableStream();
     const data = {
       request: Object.assign(requestStream, {
         headers: {},
         method: "",
         url: "",
       }),
-      response: Object.assign(responseStream, {
+      response: Object.assign(response, {
         writeHead: jest.fn(),
         end: jest.fn(),
       }),
